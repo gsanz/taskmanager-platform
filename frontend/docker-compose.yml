@@ -3,3 +3,5 @@ services:
     build: .
     ports:
       - "${VITE_NGINX_PORT:-80}:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

@@ -1,5 +1,6 @@
 FROM node:20-alpine AS build
 WORKDIR /app
+ENV VITE_API_BASE_URL=http://localhost:4000
 COPY package.json package-lock.json* ./
 RUN npm install
 COPY . .
