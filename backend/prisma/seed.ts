@@ -42,32 +42,6 @@ async function main() {
   console.log('✅ Roles procesados correctamente.');
 
   console.log('🌱 Procesando usuarios...');
-  /*
-  const users = [
-    {
-      name: 'Juan',
-      secondname: 'García',
-      email: 'juan@tragsa.com',
-      password: '123456',
-      roleName: 'Administrador',
-    },
-    {
-      name: 'Ana',
-      secondname: 'Martínez',
-      email: 'ana@tragsa.com',
-      password: '123456',
-      roleName: 'Manager',
-    },
-    {
-      name: 'Pedro',
-      secondname: 'López',
-      email: 'plopez@tragsa.com',
-      password: '123456',
-      roleName: 'Técnico',
-    },
-  ];
-*/
-
 
 const users = [
   {
@@ -82,7 +56,7 @@ const users = [
   {
     name: 'Antonio',
     secondname: 'Vicente Galvañ Vicente',
-    email: 'antonio.vicente.galvan@tragsa.com',
+    email: 'agalvan3@tragsa.es',
     password: '123456',
     roleName: 'Técnico',
     telefonoEmpresa: '610571735',
@@ -91,7 +65,7 @@ const users = [
   {
     name: 'Celia',
     secondname: 'Hernandis Sanz',
-    email: 'celia.hernandis@tragsa.com',
+    email: 'chernan9@tragsa.es',
     password: '123456',
     roleName: 'Técnico',
     telefonoEmpresa: '610559923',
@@ -100,7 +74,7 @@ const users = [
   {
     name: 'Cristina',
     secondname: 'del Rey Ballesteros',
-    email: 'cristina.delrey@tragsa.com',
+    email: 'cdelrey@tragsa.es',
     password: '123456',
     roleName: 'Técnico',
     telefonoEmpresa: '610557290',
@@ -109,7 +83,7 @@ const users = [
   {
     name: 'César',
     secondname: 'Donado-Mazarrón Morales',
-    email: 'cesar.donado-mazarron@tragsa.com',
+    email: 'cdonadom@tragsa.es',
     password: '123456',
     roleName: 'Técnico',
     telefonoEmpresa: '610557204',
@@ -118,7 +92,7 @@ const users = [
   {
     name: 'Gorka',
     secondname: 'Sanz Monllor',
-    email: 'gorka.sanz@tragsa.com',
+    email: 'gsanz5@tragsa.es',
     password: '123456',
     roleName: 'Técnico',
     telefonoEmpresa: '610571737',
@@ -127,7 +101,7 @@ const users = [
   {
     name: 'Iago',
     secondname: 'Letellier Tena',
-    email: 'iago.letellier@tragsa.com',
+    email: 'iletelli@tragsa.es',
     password: '123456',
     roleName: 'Técnico',
     telefonoEmpresa: '610557298',
@@ -136,7 +110,7 @@ const users = [
   {
     name: 'Javier',
     secondname: 'de Pedraza Carrera',
-    email: 'javier.depedraza@tragsa.com',
+    email: 'jdepedra@tragsa.es',
     password: '123456',
     roleName: 'Técnico',
     telefonoEmpresa: '610584207',
@@ -145,7 +119,7 @@ const users = [
   {
     name: 'José',
     secondname: 'Cayetano Martínez Barberá',
-    email: 'jose.cayetano@tragsa.com',
+    email: 'jmart216@tragsa.es',
     password: '123456',
     roleName: 'Técnico',
     telefonoEmpresa: '610554428',
@@ -163,7 +137,7 @@ const users = [
   {
     name: 'Juan',
     secondname: 'Ballester Pérez',
-    email: 'juan.ballester@tragsa.com',
+    email: 'jballest@tragsa.es',
     password: '123456',
     roleName: 'Técnico',
     telefonoEmpresa: '610562975',
@@ -172,7 +146,7 @@ const users = [
   {
     name: 'Liliana Noemi',
     secondname: 'Romero Alonso',
-    email: 'liliana.romero@tragsa.com',
+    email: 'lromero2@tragsa.es',
     password: '123456',
     roleName: 'Técnico',
     telefonoEmpresa: '610559913',
@@ -181,7 +155,7 @@ const users = [
   {
     name: 'Lorena',
     secondname: 'Bellver Martínez',
-    email: 'lorena.bellver@tragsa.com',
+    email: 'lbellver@tragsa.es',
     password: '123456',
     roleName: 'Técnico',
     telefonoEmpresa: '610557301',
@@ -190,7 +164,7 @@ const users = [
   {
     name: 'Menchu',
     secondname: 'Díaz Aparisi',
-    email: 'menchu.diaz@tragsa.com',
+    email: 'mdiaz60@tragsa.es',
     password: '123456',
     roleName: 'Técnico',
     telefonoEmpresa: '610557303',
@@ -199,7 +173,7 @@ const users = [
   {
     name: 'Nacho',
     secondname: 'Espinós Conejo',
-    email: 'nacho.espinos@tragsa.com',
+    email: 'iespino4@tragsa.es',
     password: '123456',
     roleName: 'Manager',
     telefonoEmpresa: '610564689',
@@ -208,7 +182,7 @@ const users = [
   {
     name: 'Natalia',
     secondname: 'Varandela Espinosa',
-    email: 'natalia.varandela@tragsa.com',
+    email: 'nvarande@tragsa.es',
     password: '123456',
     roleName: 'Técnico',
     telefonoEmpresa: '610583696',
@@ -217,7 +191,7 @@ const users = [
   {
     name: 'Raúl',
     secondname: 'Hervás González',
-    email: 'raul.hervas@tragsa.com',
+    email: 'rhervas3@tragsa.es',
     password: '123456',
     roleName: 'Técnico',
     telefonoEmpresa: '610571719',
@@ -226,7 +200,7 @@ const users = [
   {
     name: 'Raúl',
     secondname: 'del Río de Blas',
-    email: 'raul.delrio@tragsa.com',
+    email: 'rdelrio3@tragsa.es',
     password: '123456',
     roleName: 'Técnico',
     telefonoEmpresa: '610557322',
@@ -235,7 +209,7 @@ const users = [
   {
     name: 'Reyes Gabriela',
     secondname: 'Segura Ramón',
-    email: 'reyes.gabriela@tragsa.com',
+    email: 'rsegura2@tragsa.es',
     password: '123456',
     roleName: 'Técnico',
     telefonoEmpresa: '610557329',
@@ -244,7 +218,7 @@ const users = [
   {
     name: 'Ángel',
     secondname: 'del Hierro Yubero',
-    email: 'angel.delhierro@tragsa.com',
+    email: 'adelhier@tragsa.es',
     password: '123456',
     roleName: 'Técnico',
     telefonoEmpresa: '610555196',
@@ -253,7 +227,7 @@ const users = [
   {
     name: 'Óscar',
     secondname: 'González Pelayo',
-    email: 'oscar.gonzalez@tragsa.com',
+    email: 'ogonza10@tragsa.es',
     password: '123456',
     roleName: 'Manager',
     telefonoEmpresa: '610557313',
@@ -262,7 +236,7 @@ const users = [
   {
     name: 'Ana Isabel',
     secondname: 'Soriano Rustarazo',
-    email: 'ana.isabel.soriano@tragsa.com',
+    email: 'aisr@tragsa.es',
     password: '123456',
     roleName: 'Administrador',
     telefonoEmpresa: '610557332',
@@ -271,7 +245,7 @@ const users = [
   {
     name: 'Rafael',
     secondname: 'Gimeno García',
-    email: 'rafael.gimeno@tragsa.com',
+    email: 'rgimeno@tragsa.es',
     password: '123456',
     roleName: 'Administrador',
     telefonoEmpresa: '618794028',

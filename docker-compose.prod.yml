@@ -1,0 +1,45 @@
+services:
+  postgresql:
+    image: postgres:15
+    container_name: postgres-db
+    restart: always
+    environment:
+      POSTGRES_USER: tragsa
+      POSTGRES_PASSWORD: tragsa
+      POSTGRES_DB: tragsa_db
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U tragsa -d tragsa_db']
+      interval: 5s
+      retries: 5
+
+  api:
+    image: gorsanmo/taskmanager-platform-api:1.0
+    container_name: nest-api
+    restart: always
+    depends_on:
+      postgresql:
+        condition: service_healthy
+    ports:
+      - '4000:4000'
+    env_file:
+      - ./backend/.env
+    environment:
+      DATABASE_URL: postgresql://tragsa:tragsa@postgresql:5432/tragsa_db?sslmode=disable
+
+  frontend:
+    image: gorsanmo/taskmanager-platform-frontend:1.0
+    container_name: tragsa-frontend
+    restart: always
+    depends_on:
+      - api
+    ports:
+      - '5175:80'
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+
+volumes:
+  postgres_data:
