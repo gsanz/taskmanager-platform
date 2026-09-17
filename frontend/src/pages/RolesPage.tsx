@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useRoles } from '../hooks/useRoles';
 import { useAuth } from '../hooks/useAuth';
 import RoleModal from '../components/RoleModal';
+import { Trash2 } from 'lucide-react';
 
 export default function RolesPage() {
   const { roles, total, page, setPage, loading, createRole, deleteRole, deleteMultipleRoles } = useRoles();
@@ -45,9 +46,12 @@ export default function RolesPage() {
           {selected.size > 0 && (
             <button
               onClick={handleDeleteSelected}
-              className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+              className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 inline-flex items-center gap-2"
+              aria-label={`Eliminar ${selected.size} roles`}
+              title={`Eliminar ${selected.size} roles`}
             >
-              Eliminar ({selected.size})
+              <Trash2 size={18} aria-hidden="true" />
+              ({selected.size})
             </button>
           )}
           {canCreateRoles && (
@@ -98,8 +102,10 @@ export default function RolesPage() {
                     <button
                       onClick={() => deleteRole(role.id)}
                       className="text-red-600 hover:text-red-800"
+                      aria-label="Eliminar rol"
+                      title="Eliminar rol"
                     >
-                      Eliminar
+                      <Trash2 size={18} aria-hidden="true" />
                     </button>
                   </td>
                 </tr>

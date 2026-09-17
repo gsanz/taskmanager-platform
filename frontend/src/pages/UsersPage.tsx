@@ -3,6 +3,7 @@ import { useUsers } from "../hooks/useUsers";
 import { useRoles } from "../hooks/useRoles";
 import { useAuth } from "../hooks/useAuth";
 import UserModal from "../components/UserModal";
+import { Pencil, Trash2 } from "lucide-react";
 
 export default function UsersPage() {
   const {
@@ -67,9 +68,12 @@ export default function UsersPage() {
           {selected.size > 0 && (
             <button
               onClick={handleDeleteSelected}
-              className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+              className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 inline-flex items-center gap-2"
+              aria-label={`Eliminar ${selected.size} usuarios`}
+              title={`Eliminar ${selected.size} usuarios`}
             >
-              Eliminar ({selected.size})
+              <Trash2 size={18} aria-hidden="true" />
+              ({selected.size})
             </button>
           )}
           {canCreateUsers && (
@@ -128,15 +132,19 @@ export default function UsersPage() {
                       <button
                         onClick={() => openEditModal(user)}
                         className="text-blue-600 hover:text-blue-800 mr-3"
+                        aria-label="Modificar usuario"
+                        title="Modificar usuario"
                       >
-                        Modificar
+                        <Pencil size={18} aria-hidden="true" />
                       </button>
                     )}
                     <button
                       onClick={() => deleteUser(user.id)}
                       className="text-red-600 hover:text-red-800"
+                      aria-label="Eliminar usuario"
+                      title="Eliminar usuario"
                     >
-                      Eliminar
+                      <Trash2 size={18} aria-hidden="true" />
                     </button>
                   </td>
                 </tr>

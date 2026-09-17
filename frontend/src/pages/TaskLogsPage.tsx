@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 import { useTasks } from "../hooks/useTasks";
 import { useTaskLogs } from "../hooks/useTaskLogs";
+import { Pencil, Trash2 } from "lucide-react";
 import { useUsers } from "../hooks/useUsers";
 import { useAuth } from "../hooks/useAuth";
 import {
@@ -651,7 +652,7 @@ export default function TaskLogsPage() {
                             title="Modificar registro"
                             className="text-blue-600 hover:text-blue-800 text-lg leading-none"
                           >
-                            ✎
+                            <Pencil size={18} aria-hidden="true" />
                           </button>
                           <button
                             type="button"
@@ -660,7 +661,7 @@ export default function TaskLogsPage() {
                             title="Eliminar registro"
                             className="text-red-600 hover:text-red-800 text-lg leading-none"
                           >
-                            🗑
+                            <Trash2 size={18} aria-hidden="true" />
                           </button>
                         </div>
                       </div>

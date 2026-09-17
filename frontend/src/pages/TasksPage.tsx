@@ -4,6 +4,7 @@ import { useUsers } from "../hooks/useUsers";
 import { useRoles } from "../hooks/useRoles";
 import { useAuth } from "../hooks/useAuth";
 import TaskModal from "../components/TaskModal";
+import { Trash2 } from "lucide-react";
 
 export default function TasksPage() {
   const {
@@ -90,9 +91,12 @@ export default function TasksPage() {
           {selected.size > 0 && (
             <button
               onClick={handleDeleteSelected}
-              className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+              className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 inline-flex items-center gap-2"
+              aria-label={`Eliminar ${selected.size} tareas`}
+              title={`Eliminar ${selected.size} tareas`}
             >
-              Eliminar ({selected.size})
+              <Trash2 size={18} aria-hidden="true" />
+              ({selected.size})
             </button>
           )}
           <button
@@ -152,8 +156,10 @@ export default function TasksPage() {
                     <button
                       onClick={() => deleteTask(task.id)}
                       className="text-red-600 hover:text-red-800"
+                      aria-label="Eliminar tarea"
+                      title="Eliminar tarea"
                     >
-                      Eliminar
+                      <Trash2 size={18} aria-hidden="true" />
                     </button>
                   </td>
                 </tr>
