@@ -1,0 +1,139 @@
+import { Injectable } from '@nestjs/common';
+import { UserRepository } from '../../../domain/user/repositories/user.repository';
+import { PrismaService } from '../../prisma/prisma.service';
+import { User } from '../../../domain/user/entities/user.entity';
+import { UpdateUserData } from 'src/domain/user/types/update-user-data.type';
+import { PaginatedResult } from '../../../common/types/paginated-result.type';
+
+@Injectable()
+export class UserRepositoryImpl implements UserRepository {
+  constructor(private readonly prisma: PrismaService) {}
+
+  async save(user: User): Promise<User> {
+    const data = await this.prisma.user.create({
+      data: {
+        id: user.getId(),
+        name: user.getName(),
+        secondname: user.getSecondname(),
+        email: user.getEmail(),
+        password: user.getPassword(),
+        roleId: user.getRoleId(),
+        createdAt: user.getCreatedAt(),
+      },
+    });
+
+    return new User(
+      data.id,
+      data.name,
+      data.secondname,
+      data.email,
+      data.password,
+      data.createdAt,
+      data.roleId,
+    );
+  }
+
+  async findAll(page: number, limit: number): Promise<PaginatedResult<User>> {
+    const skip = (page - 1) * limit;
+
+    const [users, total] = await Promise.all([
+      this.prisma.user.findMany({
+        skip,
+        take: limit,
+        orderBy: { createdAt: 'desc' },
+      }),
+      this.prisma.user.count(),
+    ]);
+
+    const data = users.map(
+      (u) => new User(u.id, u.name, u.secondname, u.email, u.password, u.createdAt, u.roleId),
+    );
+
+    return new PaginatedResult(data, total, page, limit);
+  }
+
+  async findById(id: string): Promise<User | null> {
+    const data = await this.prisma.user.findUnique({
+      where: { id },
+    });
+
+    if (!data) return null;
+
+    return new User(
+      data.id,
+      data.name,
+      data.secondname,
+      data.email,
+      data.password,
+      data.createdAt,
+      data.roleId,
+    );
+  }
+
+  async findByEmail(email: string): Promise<User | null> {
+    const data = await this.prisma.user.findUnique({
+      where: { email },
+    });
+
+    if (!data) return null;
+
+    return new User(
+      data.id,
+      data.name,
+      data.secondname,
+      data.email,
+      data.password,
+      data.createdAt,
+      data.roleId,
+    );
+  }
+
+  async update(id: string, data: UpdateUserData): Promise<User> {
+    const updated = await this.prisma.user.update({
+      where: { id },
+      data: {
+        ...(data.name && { name: data.name }),
+        ...(data.secondname !== undefined && { secondname: data.secondname }),
+        ...(data.email && { email: data.email }),
+        ...(data.password && { password: data.password }),
+        ...(data.roleId && { roleId: data.roleId }),
+      },
+    });
+
+    return new User(
+      updated.id,
+      updated.name,
+      updated.secondname,
+      updated.email,
+      updated.password,
+      updated.createdAt,
+      updated.roleId,
+    );
+  }
+
+  async delete(id: string): Promise<void> {
+    await this.prisma.tareaUsuario.deleteMany({
+      where: { userId: id },
+    });
+    await this.prisma.user.delete({
+      where: { id },
+    });
+  }
+
+  async deleteMany(ids: string[]): Promise<void> {
+    await this.prisma.tareaUsuario.deleteMany({
+      where: {
+        userId: {
+          in: ids,
+        },
+      },
+    });
+    await this.prisma.user.deleteMany({
+      where: {
+        id: {
+          in: ids,
+        },
+      },
+    });
+  }
+}

@@ -1,0 +1,41 @@
+import {
+  IsEmail,
+  IsString,
+  MinLength,
+  MaxLength,
+  IsOptional,
+} from 'class-validator';
+import { ApiPropertyOptional } from '@nestjs/swagger';
+import { RoleName } from 'src/domain/role/enums/role.enum';
+
+export class UpdateUserDto {
+  @ApiPropertyOptional({ example: 'Juan' })
+  @IsOptional()
+  @IsString()
+  @MinLength(2)
+  @MaxLength(100)
+  name?: string;
+
+  @ApiPropertyOptional({ example: 'Pérez', description: 'Apellido del usuario' })
+  @IsOptional()
+  @IsString()
+  @MaxLength(100)
+  secondname?: string;
+
+  @ApiPropertyOptional({ example: 'juan@email.com' })
+  @IsOptional()
+  @IsEmail()
+  email?: string;
+
+  @ApiPropertyOptional({ example: '123456' })
+  @IsOptional()
+  @IsString()
+  @MinLength(6)
+  @MaxLength(100)
+  password?: string;
+
+  @ApiPropertyOptional({ example: RoleName.ADMINISTRADOR, description: 'ID del rol del usuario' })
+  @IsOptional()
+  @IsString()
+  roleId?: string;
+}
