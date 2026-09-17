@@ -15,6 +15,18 @@ export class CreateUserDto {
   @MaxLength(100)
   secondname?: string;
 
+  @ApiPropertyOptional({ example: '+34 900 123 456', description: 'Teléfono de empresa' })
+  @IsOptional()
+  @IsString()
+  @MaxLength(30)
+  telefonoEmpresa?: string;
+
+  @ApiPropertyOptional({ example: '1234', description: 'Teléfono corto' })
+  @IsOptional()
+  @IsString()
+  @MaxLength(15)
+  telefonoCorto?: string;
+
   @ApiProperty({ example: 'juan@email.com' })
   @IsEmail()
   email!: string;

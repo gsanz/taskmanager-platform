@@ -8,6 +8,8 @@ interface Props {
     password?: string;
     name: string;
     secondname: string;
+    telefonoEmpresa: string;
+    telefonoCorto: string;
     roleId: string;
   }) => void;
   roles: Role[];
@@ -20,11 +22,13 @@ export default function UserModal({ onClose, onSubmit, roles, user }: Props) {
   const [password, setPassword] = useState('');
   const [name, setName] = useState(user?.name || '');
   const [secondname, setSecondname] = useState(user?.secondname || '');
+  const [telefonoEmpresa, setTelefonoEmpresa] = useState(user?.telefonoEmpresa || '');
+  const [telefonoCorto, setTelefonoCorto] = useState(user?.telefonoCorto || '');
   const [roleId, setRoleId] = useState(user?.roleId || '');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit({ email, password: password || undefined, name, secondname, roleId });
+    onSubmit({ email, password: password || undefined, name, secondname, telefonoEmpresa, telefonoCorto, roleId });
     onClose();
   };
 
@@ -57,6 +61,20 @@ export default function UserModal({ onClose, onSubmit, roles, user }: Props) {
             onChange={(e) => setEmail(e.target.value)}
             className="w-full border rounded px-3 py-2"
             required
+          />
+          <input
+            type="tel"
+            placeholder="Teléfono de Empresa"
+            value={telefonoEmpresa}
+            onChange={(e) => setTelefonoEmpresa(e.target.value)}
+            className="w-full border rounded px-3 py-2"
+          />
+          <input
+            type="tel"
+            placeholder="Teléfono Corto"
+            value={telefonoCorto}
+            onChange={(e) => setTelefonoCorto(e.target.value)}
+            className="w-full border rounded px-3 py-2"
           />
           <input
             type="password"

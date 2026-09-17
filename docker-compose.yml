@@ -29,6 +29,8 @@ services:
       - '4000:4000'
     env_file:
       - ./backend/.env
+    environment:
+      DATABASE_URL: postgresql://tragsa:tragsa@postgresql:5432/tragsa_db?sslmode=disable
     volumes:
       - ./backend:/app
     command: >

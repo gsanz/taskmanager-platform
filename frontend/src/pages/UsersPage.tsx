@@ -106,6 +106,8 @@ export default function UsersPage() {
                 </th>
                 <th className="px-4 py-3 text-left">Nombre</th>
                 <th className="px-4 py-3 text-left">Segundo nombre</th>
+                <th className="px-4 py-3 text-left">Teléfono de Empresa</th>
+                <th className="px-4 py-3 text-left">Teléfono Corto</th>
                 <th className="px-4 py-3 text-left">Email</th>
                 <th className="px-4 py-3 text-left">Rol</th>
                 <th className="px-4 py-3 text-left">Acciones</th>
@@ -123,6 +125,8 @@ export default function UsersPage() {
                   </td>
                   <td className="px-4 py-3">{user.name}</td>
                   <td className="px-4 py-3">{user.secondname || "-"}</td>
+                  <td className="px-4 py-3">{user.telefonoEmpresa || "-"}</td>
+                  <td className="px-4 py-3">{user.telefonoCorto || "-"}</td>
                   <td className="px-4 py-3">{user.email}</td>
                   <td className="px-4 py-3 text-sm text-gray-500">
                     {roleMap.get(user.roleId) || user.roleId}

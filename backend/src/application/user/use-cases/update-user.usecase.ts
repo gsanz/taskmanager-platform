@@ -29,6 +29,8 @@ export class UpdateUserUseCase {
     const data: UpdateUserData = {
       name: dto.name,
       secondname: dto.secondname,
+      telefonoEmpresa: dto.telefonoEmpresa,
+      telefonoCorto: dto.telefonoCorto,
       email: dto.email,
       password: dto.password,
     };

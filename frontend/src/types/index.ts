@@ -3,6 +3,8 @@ export interface User {
   email: string;
   name: string;
   secondname?: string | null;
+  telefonoEmpresa?: string | null;
+  telefonoCorto?: string | null;
   roleId: string;
 }
 

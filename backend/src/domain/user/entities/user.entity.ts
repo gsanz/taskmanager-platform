@@ -3,6 +3,8 @@ export class User {
     public readonly id: string,
     private name: string,
     private secondname: string | null,
+    private telefonoEmpresa: string | null,
+    private telefonoCorto: string | null,
     private email: string,
     private password: string,
     private createdAt: Date,
@@ -13,6 +15,8 @@ export class User {
     id: string,
     name: string,
     secondname: string | null,
+    telefonoEmpresa: string | null,
+    telefonoCorto: string | null,
     email: string,
     password: string,
     roleId?: string,
@@ -25,7 +29,7 @@ export class User {
       throw new Error('Password too short');
     }
 
-    return new User(id, name, secondname, email, password, new Date(), roleId ?? null);
+    return new User(id, name, secondname, telefonoEmpresa, telefonoCorto, email, password, new Date(), roleId ?? null);
   }
 
   // 🔒 validación privada
@@ -44,6 +48,14 @@ export class User {
 
   getSecondname(): string | null {
     return this.secondname;
+  }
+
+  getTelefonoEmpresa(): string | null {
+    return this.telefonoEmpresa;
+  }
+
+  getTelefonoCorto(): string | null {
+    return this.telefonoCorto;
   }
 
   getEmail(): string {

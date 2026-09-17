@@ -15,6 +15,8 @@ export class UserRepositoryImpl implements UserRepository {
         id: user.getId(),
         name: user.getName(),
         secondname: user.getSecondname(),
+        telefonoEmpresa: user.getTelefonoEmpresa(),
+        telefonoCorto: user.getTelefonoCorto(),
         email: user.getEmail(),
         password: user.getPassword(),
         roleId: user.getRoleId(),
@@ -26,6 +28,8 @@ export class UserRepositoryImpl implements UserRepository {
       data.id,
       data.name,
       data.secondname,
+      data.telefonoEmpresa,
+      data.telefonoCorto,
       data.email,
       data.password,
       data.createdAt,
@@ -46,7 +50,7 @@ export class UserRepositoryImpl implements UserRepository {
     ]);
 
     const data = users.map(
-      (u) => new User(u.id, u.name, u.secondname, u.email, u.password, u.createdAt, u.roleId),
+      (u) => new User(u.id, u.name, u.secondname, u.telefonoEmpresa, u.telefonoCorto, u.email, u.password, u.createdAt, u.roleId),
     );
 
     return new PaginatedResult(data, total, page, limit);
@@ -63,6 +67,8 @@ export class UserRepositoryImpl implements UserRepository {
       data.id,
       data.name,
       data.secondname,
+      data.telefonoEmpresa,
+      data.telefonoCorto,
       data.email,
       data.password,
       data.createdAt,
@@ -81,6 +87,8 @@ export class UserRepositoryImpl implements UserRepository {
       data.id,
       data.name,
       data.secondname,
+      data.telefonoEmpresa,
+      data.telefonoCorto,
       data.email,
       data.password,
       data.createdAt,
@@ -94,6 +102,8 @@ export class UserRepositoryImpl implements UserRepository {
       data: {
         ...(data.name && { name: data.name }),
         ...(data.secondname !== undefined && { secondname: data.secondname }),
+        ...(data.telefonoEmpresa !== undefined && { telefonoEmpresa: data.telefonoEmpresa }),
+        ...(data.telefonoCorto !== undefined && { telefonoCorto: data.telefonoCorto }),
         ...(data.email && { email: data.email }),
         ...(data.password && { password: data.password }),
         ...(data.roleId && { roleId: data.roleId }),
@@ -104,6 +114,8 @@ export class UserRepositoryImpl implements UserRepository {
       updated.id,
       updated.name,
       updated.secondname,
+      updated.telefonoEmpresa,
+      updated.telefonoCorto,
       updated.email,
       updated.password,
       updated.createdAt,

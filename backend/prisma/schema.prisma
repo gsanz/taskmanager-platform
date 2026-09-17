@@ -20,6 +20,8 @@ model User {
   id        String   @id @default(uuid()) @db.Uuid
   name      String   @db.VarChar(100)
   secondname String?  @db.VarChar(100)
+  telefonoEmpresa String? @map("telefono_empresa") @db.VarChar(30)
+  telefonoCorto String? @map("telefono_corto") @db.VarChar(15)
   email     String   @unique @db.VarChar(255)
   password  String   @db.VarChar(255)
   mustChangePassword Boolean @default(true) @map("must_change_password")

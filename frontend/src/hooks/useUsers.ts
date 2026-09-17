@@ -60,6 +60,8 @@ export function useUsers(loadAll = false) {
     password: string;
     name: string;
     secondname: string;
+    telefonoEmpresa: string;
+    telefonoCorto: string;
     roleId: string;
   }) => {
     await client.post("/users", user);
@@ -73,6 +75,8 @@ export function useUsers(loadAll = false) {
       password?: string;
       name?: string;
       secondname?: string;
+      telefonoEmpresa?: string;
+      telefonoCorto?: string;
       roleId?: string;
     },
   ) => {

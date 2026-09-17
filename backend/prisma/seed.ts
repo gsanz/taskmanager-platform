@@ -70,12 +70,14 @@ async function main() {
 
 
 const users = [
-    {
+  {
     name: 'Administrador',
     secondname: 'Administrador',
     email: 'admin@tragsa.com',
     password: '123456',
     roleName: 'Administrador',
+    telefonoEmpresa: '',
+    telefonoCorto: '',
   },
   {
     name: 'Antonio',
@@ -83,6 +85,8 @@ const users = [
     email: 'antonio.vicente.galvan@tragsa.com',
     password: '123456',
     roleName: 'Técnico',
+    telefonoEmpresa: '610571735',
+    telefonoCorto: '87816',
   },
   {
     name: 'Celia',
@@ -90,6 +94,8 @@ const users = [
     email: 'celia.hernandis@tragsa.com',
     password: '123456',
     roleName: 'Técnico',
+    telefonoEmpresa: '610559923',
+    telefonoCorto: '90055',
   },
   {
     name: 'Cristina',
@@ -97,6 +103,8 @@ const users = [
     email: 'cristina.delrey@tragsa.com',
     password: '123456',
     roleName: 'Técnico',
+    telefonoEmpresa: '610557290',
+    telefonoCorto: '90635',
   },
   {
     name: 'César',
@@ -104,6 +112,8 @@ const users = [
     email: 'cesar.donado-mazarron@tragsa.com',
     password: '123456',
     roleName: 'Técnico',
+    telefonoEmpresa: '610557204',
+    telefonoCorto: '90634',
   },
   {
     name: 'Gorka',
@@ -111,6 +121,8 @@ const users = [
     email: 'gorka.sanz@tragsa.com',
     password: '123456',
     roleName: 'Técnico',
+    telefonoEmpresa: '610571737',
+    telefonoCorto: '87817',
   },
   {
     name: 'Iago',
@@ -118,6 +130,8 @@ const users = [
     email: 'iago.letellier@tragsa.com',
     password: '123456',
     roleName: 'Técnico',
+    telefonoEmpresa: '610557298',
+    telefonoCorto: '90636',
   },
   {
     name: 'Javier',
@@ -125,6 +139,8 @@ const users = [
     email: 'javier.depedraza@tragsa.com',
     password: '123456',
     roleName: 'Técnico',
+    telefonoEmpresa: '610584207',
+    telefonoCorto: '11091',
   },
   {
     name: 'José',
@@ -132,6 +148,8 @@ const users = [
     email: 'jose.cayetano@tragsa.com',
     password: '123456',
     roleName: 'Técnico',
+    telefonoEmpresa: '610554428',
+    telefonoCorto: '19533',
   },
   {
     name: 'José Manuel',
@@ -139,6 +157,8 @@ const users = [
     email: 'josemanuel.belda@tragsa.com',
     password: '123456',
     roleName: 'Técnico',
+    telefonoEmpresa: '',
+    telefonoCorto: '',
   },
   {
     name: 'Juan',
@@ -146,6 +166,8 @@ const users = [
     email: 'juan.ballester@tragsa.com',
     password: '123456',
     roleName: 'Técnico',
+    telefonoEmpresa: '610562975',
+    telefonoCorto: '81902',
   },
   {
     name: 'Liliana Noemi',
@@ -153,6 +175,8 @@ const users = [
     email: 'liliana.romero@tragsa.com',
     password: '123456',
     roleName: 'Técnico',
+    telefonoEmpresa: '610559913',
+    telefonoCorto: '90054',
   },
   {
     name: 'Lorena',
@@ -160,6 +184,8 @@ const users = [
     email: 'lorena.bellver@tragsa.com',
     password: '123456',
     roleName: 'Técnico',
+    telefonoEmpresa: '610557301',
+    telefonoCorto: '90637',
   },
   {
     name: 'Menchu',
@@ -167,6 +193,8 @@ const users = [
     email: 'menchu.diaz@tragsa.com',
     password: '123456',
     roleName: 'Técnico',
+    telefonoEmpresa: '610557303',
+    telefonoCorto: '90638',
   },
   {
     name: 'Nacho',
@@ -174,6 +202,8 @@ const users = [
     email: 'nacho.espinos@tragsa.com',
     password: '123456',
     roleName: 'Manager',
+    telefonoEmpresa: '610564689',
+    telefonoCorto: '14913',
   },
   {
     name: 'Natalia',
@@ -181,6 +211,8 @@ const users = [
     email: 'natalia.varandela@tragsa.com',
     password: '123456',
     roleName: 'Técnico',
+    telefonoEmpresa: '610583696',
+    telefonoCorto: '',
   },
   {
     name: 'Raúl',
@@ -188,6 +220,8 @@ const users = [
     email: 'raul.hervas@tragsa.com',
     password: '123456',
     roleName: 'Técnico',
+    telefonoEmpresa: '610571719',
+    telefonoCorto: '87815',
   },
   {
     name: 'Raúl',
@@ -195,6 +229,8 @@ const users = [
     email: 'raul.delrio@tragsa.com',
     password: '123456',
     roleName: 'Técnico',
+    telefonoEmpresa: '610557322',
+    telefonoCorto: '90640',
   },
   {
     name: 'Reyes Gabriela',
@@ -202,6 +238,8 @@ const users = [
     email: 'reyes.gabriela@tragsa.com',
     password: '123456',
     roleName: 'Técnico',
+    telefonoEmpresa: '610557329',
+    telefonoCorto: '90641',
   },
   {
     name: 'Ángel',
@@ -209,6 +247,8 @@ const users = [
     email: 'angel.delhierro@tragsa.com',
     password: '123456',
     roleName: 'Técnico',
+    telefonoEmpresa: '610555196',
+    telefonoCorto: '90633',
   },
   {
     name: 'Óscar',
@@ -216,6 +256,8 @@ const users = [
     email: 'oscar.gonzalez@tragsa.com',
     password: '123456',
     roleName: 'Manager',
+    telefonoEmpresa: '610557313',
+    telefonoCorto: '90639',
   },
   {
     name: 'Ana Isabel',
@@ -223,6 +265,8 @@ const users = [
     email: 'ana.isabel.soriano@tragsa.com',
     password: '123456',
     roleName: 'Administrador',
+    telefonoEmpresa: '610557332',
+    telefonoCorto: '90642',
   },
   {
     name: 'Rafael',
@@ -230,6 +274,8 @@ const users = [
     email: 'rafael.gimeno@tragsa.com',
     password: '123456',
     roleName: 'Administrador',
+    telefonoEmpresa: '618794028',
+    telefonoCorto: '88720',
   },
 ];
 
@@ -242,12 +288,16 @@ const users = [
       update: {
         name: user.name,
         secondname: user.secondname,
+        telefonoEmpresa: user.telefonoEmpresa,
+        telefonoCorto: user.telefonoCorto,
         password: hashedPassword,
         roleId: roleMap[user.roleName],
       },
       create: {
         name: user.name,
         secondname: user.secondname,
+        telefonoEmpresa: user.telefonoEmpresa,
+        telefonoCorto: user.telefonoCorto,
         email: user.email,
         password: hashedPassword,
         mustChangePassword: true,
