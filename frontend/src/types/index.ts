@@ -40,6 +40,7 @@ export interface LoginRequest {
 
 export interface LoginResponse {
   access_token: string;
+  mustChangePassword: boolean;
 }
 
 export interface PaginatedResponse<T> {

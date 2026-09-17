@@ -4,5 +4,6 @@ export class AuthUser {
     public readonly email: string,
     public readonly password: string,
     public readonly roleNombre: string,
+    public readonly mustChangePassword: boolean,
   ) {}
 }

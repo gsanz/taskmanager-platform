@@ -37,6 +37,7 @@ export class LoginUseCase {
 
     return {
       access_token: token,
+      mustChangePassword: user.mustChangePassword,
     };
   }
 }

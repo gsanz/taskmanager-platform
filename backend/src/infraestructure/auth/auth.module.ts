@@ -6,6 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UserModule } from '../user/user.module';
 
 import { LoginUseCase } from '../../application/auth/use-cases/login.usecase';
+import { ChangePasswordUseCase } from '../../application/auth/use-cases/change-password.usecase';
 
 import { JwtStrategy } from './jwt.strategy';
 import { JwtAuthGuard } from './jwt-auth.guard';
@@ -47,6 +48,7 @@ import { PrismaModule } from '../prisma/prisma.module';
 
   providers: [
     LoginUseCase,
+    ChangePasswordUseCase,
     JwtStrategy,
     JwtAuthGuard,
     {
@@ -57,6 +59,7 @@ import { PrismaModule } from '../prisma/prisma.module';
 
   exports: [
     LoginUseCase,
+    ChangePasswordUseCase,
     JwtAuthGuard,
     PassportModule,
     JwtModule,

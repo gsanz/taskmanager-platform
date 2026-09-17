@@ -22,6 +22,7 @@ model User {
   secondname String?  @db.VarChar(100)
   email     String   @unique @db.VarChar(255)
   password  String   @db.VarChar(255)
+  mustChangePassword Boolean @default(true) @map("must_change_password")
   roleId    String?  @map("role_id") @db.Uuid
   createdAt DateTime @default(now()) @map("created_at")
 

@@ -17,6 +17,19 @@ export class AuthRepositoryImpl implements AuthRepository {
 
     if (!user) return null;
 
-    return new AuthUser(user.id, user.email, user.password, user.role?.nombre ?? '');
+    return new AuthUser(
+      user.id,
+      user.email,
+      user.password,
+      user.role?.nombre ?? '',
+      user.mustChangePassword,
+    );
+  }
+
+  async changePassword(id: string, password: string): Promise<void> {
+    await this.prisma.user.update({
+      where: { id },
+      data: { password, mustChangePassword: false },
+    });
   }
 }

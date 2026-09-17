@@ -42,7 +42,7 @@ async function main() {
   console.log('✅ Roles procesados correctamente.');
 
   console.log('🌱 Procesando usuarios...');
-
+  /*
   const users = [
     {
       name: 'Juan',
@@ -66,6 +66,173 @@ async function main() {
       roleName: 'Técnico',
     },
   ];
+*/
+
+
+const users = [
+    {
+    name: 'Administrador',
+    secondname: 'Administrador',
+    email: 'admin@tragsa.com',
+    password: '123456',
+    roleName: 'Administrador',
+  },
+  {
+    name: 'Antonio',
+    secondname: 'Vicente Galvañ Vicente',
+    email: 'antonio.vicente.galvan@tragsa.com',
+    password: '123456',
+    roleName: 'Técnico',
+  },
+  {
+    name: 'Celia',
+    secondname: 'Hernandis Sanz',
+    email: 'celia.hernandis@tragsa.com',
+    password: '123456',
+    roleName: 'Técnico',
+  },
+  {
+    name: 'Cristina',
+    secondname: 'del Rey Ballesteros',
+    email: 'cristina.delrey@tragsa.com',
+    password: '123456',
+    roleName: 'Técnico',
+  },
+  {
+    name: 'César',
+    secondname: 'Donado-Mazarrón Morales',
+    email: 'cesar.donado-mazarron@tragsa.com',
+    password: '123456',
+    roleName: 'Técnico',
+  },
+  {
+    name: 'Gorka',
+    secondname: 'Sanz Monllor',
+    email: 'gorka.sanz@tragsa.com',
+    password: '123456',
+    roleName: 'Técnico',
+  },
+  {
+    name: 'Iago',
+    secondname: 'Letellier Tena',
+    email: 'iago.letellier@tragsa.com',
+    password: '123456',
+    roleName: 'Técnico',
+  },
+  {
+    name: 'Javier',
+    secondname: 'de Pedraza Carrera',
+    email: 'javier.depedraza@tragsa.com',
+    password: '123456',
+    roleName: 'Técnico',
+  },
+  {
+    name: 'José',
+    secondname: 'Cayetano Martínez Barberá',
+    email: 'jose.cayetano@tragsa.com',
+    password: '123456',
+    roleName: 'Técnico',
+  },
+  {
+    name: 'José Manuel',
+    secondname: 'Belda Carrascosa',
+    email: 'josemanuel.belda@tragsa.com',
+    password: '123456',
+    roleName: 'Técnico',
+  },
+  {
+    name: 'Juan',
+    secondname: 'Ballester Pérez',
+    email: 'juan.ballester@tragsa.com',
+    password: '123456',
+    roleName: 'Técnico',
+  },
+  {
+    name: 'Liliana Noemi',
+    secondname: 'Romero Alonso',
+    email: 'liliana.romero@tragsa.com',
+    password: '123456',
+    roleName: 'Técnico',
+  },
+  {
+    name: 'Lorena',
+    secondname: 'Bellver Martínez',
+    email: 'lorena.bellver@tragsa.com',
+    password: '123456',
+    roleName: 'Técnico',
+  },
+  {
+    name: 'Menchu',
+    secondname: 'Díaz Aparisi',
+    email: 'menchu.diaz@tragsa.com',
+    password: '123456',
+    roleName: 'Técnico',
+  },
+  {
+    name: 'Nacho',
+    secondname: 'Espinós Conejo',
+    email: 'nacho.espinos@tragsa.com',
+    password: '123456',
+    roleName: 'Manager',
+  },
+  {
+    name: 'Natalia',
+    secondname: 'Varandela Espinosa',
+    email: 'natalia.varandela@tragsa.com',
+    password: '123456',
+    roleName: 'Técnico',
+  },
+  {
+    name: 'Raúl',
+    secondname: 'Hervás González',
+    email: 'raul.hervas@tragsa.com',
+    password: '123456',
+    roleName: 'Técnico',
+  },
+  {
+    name: 'Raúl',
+    secondname: 'del Río de Blas',
+    email: 'raul.delrio@tragsa.com',
+    password: '123456',
+    roleName: 'Técnico',
+  },
+  {
+    name: 'Reyes Gabriela',
+    secondname: 'Segura Ramón',
+    email: 'reyes.gabriela@tragsa.com',
+    password: '123456',
+    roleName: 'Técnico',
+  },
+  {
+    name: 'Ángel',
+    secondname: 'del Hierro Yubero',
+    email: 'angel.delhierro@tragsa.com',
+    password: '123456',
+    roleName: 'Técnico',
+  },
+  {
+    name: 'Óscar',
+    secondname: 'González Pelayo',
+    email: 'oscar.gonzalez@tragsa.com',
+    password: '123456',
+    roleName: 'Manager',
+  },
+  {
+    name: 'Ana Isabel',
+    secondname: 'Soriano Rustarazo',
+    email: 'ana.isabel.soriano@tragsa.com',
+    password: '123456',
+    roleName: 'Administrador',
+  },
+  {
+    name: 'Rafael',
+    secondname: 'Gimeno García',
+    email: 'rafael.gimeno@tragsa.com',
+    password: '123456',
+    roleName: 'Administrador',
+  },
+];
+
 
   for (const user of users) {
     const hashedPassword = await bcrypt.hash(user.password, 10);
@@ -83,6 +250,7 @@ async function main() {
         secondname: user.secondname,
         email: user.email,
         password: hashedPassword,
+        mustChangePassword: true,
         roleId: roleMap[user.roleName],
       },
     });
