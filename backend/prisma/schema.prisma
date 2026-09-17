@@ -35,18 +35,6 @@ model User {
   @@map("users")
 }
 
-model CamaraGva {
-  id            String   @id @default(uuid()) @db.Uuid
-  nombre        String  @db.VarChar(255)
-  latitud       Decimal @db.Decimal(10, 8)
-  longitud      Decimal @db.Decimal(10, 8)
-  url           String  @db.Text
-  fuente        String  @db.VarChar(100)
-  fechaRegistro DateTime @default(now()) @map("fecha_registro") @db.Timestamptz
-
-  @@map("camaras_gva")
-}
-
 model TareaUsuario {
   id              String   @id @default(uuid()) @db.Uuid
   nombre          String   @db.VarChar(255)

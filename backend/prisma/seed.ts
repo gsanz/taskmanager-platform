@@ -3,21 +3,10 @@ import { Prisma, PrismaClient } from '@prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { Pool } from 'pg';
 import * as bcrypt from 'bcrypt';
-import { camarasDataValencia,camarasDataGVA } from './data/camarasData';
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
-
-export interface CamaraGVA {
-  //id: string;
-  nombre: string;
-  latitud: number;
-  longitud: number;
-  url: string;
-  fuente: string;
-  fechaRegistro: Date;
-}
 
 async function main() {
   console.log('🌱 Procesando roles...');
@@ -324,20 +313,6 @@ const users = [
 
   console.log('✅ Tareas procesadas correctamente.');
 
-  console.log('🌱 Procesando cámaras GVA...');
-
-  // Inserción en lote omitiendo duplicados (ajusta 'camara' si el modelo en tu schema.prisma tiene otro nombre)
-  await prisma.camaraGva.createMany({
-    data: camarasDataGVA,
-    skipDuplicates: true,
-  });
-
-    await prisma.camaraGva.createMany({
-    data: camarasDataValencia,
-    skipDuplicates: true,
-  });
-
-  console.log('✅ Cámaras procesadas correctamente.');
 }
 
 main()
