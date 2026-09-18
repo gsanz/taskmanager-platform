@@ -3,6 +3,7 @@ import { useTasks } from "../hooks/useTasks";
 import { useTaskLogs } from "../hooks/useTaskLogs";
 import { Pencil, Trash2 } from "lucide-react";
 import { useUsers } from "../hooks/useUsers";
+import { useRoles } from "../hooks/useRoles";
 import { useAuth } from "../hooks/useAuth";
 import {
   format,
@@ -34,6 +35,7 @@ export default function TaskLogsPage() {
     loading: usersLoading,
     getUserById,
   } = useUsers(true);
+  const { roles } = useRoles();
   const {
     taskLogs,
     loading: logsLoading,
@@ -84,17 +86,39 @@ export default function TaskLogsPage() {
     currentUser?.roleName || currentUser?.roleId || "",
   );
   const canExport = isAdmin || currentRole === "manager";
+  const administratorRoleIds = new Set(
+    roles
+      .filter((role) => normaliseRole(role.nombre || role.name) === "administrador")
+      .map((role) => role.id),
+  );
+  const nonAdministratorExportUsers = exportUsers.filter(
+    (user) => !administratorRoleIds.has(user.roleId),
+  );
   const allExportUsersSelected =
-    exportUsers.length > 0 && selectedExportUsers.size === exportUsers.length;
+    nonAdministratorExportUsers.length > 0 &&
+    nonAdministratorExportUsers.every((user) => selectedExportUsers.has(user.id));
   const allTaskLogUsersSelected =
     exportUsers.length > 0 && selectedTaskLogUsers.size === exportUsers.length;
 
   useEffect(() => {
-    if (exportUsers.length > 0) {
-      setSelectedExportUsers(new Set(exportUsers.map((user) => user.id)));
+    if (exportUsers.length > 0 && roles.length > 0) {
+      setSelectedExportUsers(
+        new Set(
+          exportUsers
+            .filter(
+              (user) =>
+                !roles.some(
+                  (role) =>
+                    role.id === user.roleId &&
+                    normaliseRole(role.nombre || role.name) === "administrador",
+                ),
+            )
+            .map((user) => user.id),
+        ),
+      );
       setSelectedTaskLogUsers(new Set(exportUsers.map((user) => user.id)));
     }
-  }, [exportUsers]);
+  }, [exportUsers, roles]);
 
   const setExportMonth = (date: Date, quickMonth: "current" | "previous") => {
     setExportStartDate(formatDateInput(startOfMonth(date)));
@@ -119,11 +143,15 @@ export default function TaskLogsPage() {
   });
 
   const toggleExportUsers = () => {
-    setSelectedExportUsers(
-      allExportUsersSelected
-        ? new Set()
-        : new Set(exportUsers.map((user) => user.id)),
-    );
+    setSelectedExportUsers((selected) => {
+      const next = new Set(selected);
+      if (allExportUsersSelected) {
+        nonAdministratorExportUsers.forEach((user) => next.delete(user.id));
+      } else {
+        nonAdministratorExportUsers.forEach((user) => next.add(user.id));
+      }
+      return next;
+    });
   };
 
   const toggleExportUser = (id: string) => {
